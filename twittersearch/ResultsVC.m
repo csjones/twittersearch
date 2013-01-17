@@ -77,7 +77,7 @@
     prettyCell.detailTextLabel.text = [NSString stringWithFormat:@"@%@",[[[[TwitterSearch sharedInstance] searchTweets] objectAtIndex:indexPath.row] objectForKey:@"from_user"]];
     
     if([[[TwitterSearch sharedInstance] searchTweets] count] == indexPath.row + 1)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 4 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             _isReloading = FALSE;
         });
 	
