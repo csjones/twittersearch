@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B63C6AB316A8B041007BA979 /* placeholder-avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B63C6AB216A8B041007BA979 /* placeholder-avatar@2x.png */; };
 		B6A5C46C16A5DA7F0068EC1B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A5C46B16A5DA7F0068EC1B /* UIKit.framework */; };
 		B6A5C46E16A5DA7F0068EC1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A5C46D16A5DA7F0068EC1B /* Foundation.framework */; };
 		B6A5C47016A5DA7F0068EC1B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A5C46F16A5DA7F0068EC1B /* CoreGraphics.framework */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B63C6AB216A8B041007BA979 /* placeholder-avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder-avatar@2x.png"; sourceTree = "<group>"; };
 		B6A5C46716A5DA7F0068EC1B /* twittersearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twittersearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A5C46B16A5DA7F0068EC1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B6A5C46D16A5DA7F0068EC1B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -286,6 +288,7 @@
 		B6A5C4DC16A74D5E0068EC1B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				B63C6AB216A8B041007BA979 /* placeholder-avatar@2x.png */,
 				B6F9783116A8084E00145CBD /* placeholder-avatar.png */,
 				B6A5C4DD16A74D5E0068EC1B /* search.png */,
 				B6A5C4DE16A74D5E0068EC1B /* search@2x.png */,
@@ -353,6 +356,7 @@
 				B6A5C4DF16A74D5E0068EC1B /* search.png in Resources */,
 				B6A5C4E016A74D5E0068EC1B /* search@2x.png in Resources */,
 				B6F9783216A8084E00145CBD /* placeholder-avatar.png in Resources */,
+				B63C6AB316A8B041007BA979 /* placeholder-avatar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
