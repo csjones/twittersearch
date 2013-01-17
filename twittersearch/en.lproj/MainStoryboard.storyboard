@@ -1,23 +1,122 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="H83-UK-pX4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <development version="4500" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
-        <scene sceneID="5">
+        <!--ResultsVC - Results-->
+        <scene sceneID="cAo-bu-RFn">
             <objects>
-                <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <tableViewController id="4Hw-6d-CYy" customClass="ResultsVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="64" sectionHeaderHeight="10" sectionFooterHeight="1" id="Ra5-TZ-Nvp">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.93333333330000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="4Hw-6d-CYy" id="xf0-T5-9nB"/>
+                            <outlet property="delegate" destination="4Hw-6d-CYy" id="lvw-oR-Gii"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Results" id="tTa-s5-0Lw"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lAU-Eq-dZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1294" y="332"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="098-Ox-KRI">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="H83-UK-pX4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yHe-8t-Bot" customClass="PrettyNavigationBar">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="uX3-ta-8bc" kind="relationship" relationship="rootViewController" id="ksi-uw-g6b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X85-yr-uqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="225" y="332"/>
+        </scene>
+        <!--SearchVC - Twitter-->
+        <scene sceneID="JZG-u7-egr">
+            <objects>
+                <viewController id="uX3-ta-8bc" customClass="SearchVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="43T-11-5cQ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="64" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="CvA-5J-f9J">
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.93333333330000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="ZDr-xF-dj5"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="uX3-ta-8bc" id="bAC-Ab-6aC"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWS-Vk-B4Y">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Nny-RQ-1Pl"/>
+                                    <constraint firstAttribute="width" constant="293" id="efc-Qc-F71"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTouchUpInside:" destination="uX3-ta-8bc" eventType="touchUpInside" id="9PW-ry-bft"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.93333333330000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="MWS-Vk-B4Y" firstAttribute="top" secondItem="CvA-5J-f9J" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="03w-29-Csu"/>
+                            <constraint firstAttribute="bottom" secondItem="CvA-5J-f9J" secondAttribute="bottom" constant="200" type="user" id="9MY-jv-Hcb" userLabel="Vertical Space - View - Table View"/>
+                            <constraint firstItem="CvA-5J-f9J" firstAttribute="trailing" secondItem="43T-11-5cQ" secondAttribute="trailing" type="default" id="Rjs-3m-QEa"/>
+                            <constraint firstItem="CvA-5J-f9J" firstAttribute="centerX" secondItem="MWS-Vk-B4Y" secondAttribute="centerX" type="default" id="mLT-D8-iK6"/>
+                            <constraint firstItem="CvA-5J-f9J" firstAttribute="leading" secondItem="43T-11-5cQ" secondAttribute="leading" type="default" id="mtW-z7-vJR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Twitter" id="B4n-n6-6Q7"/>
+                    <connections>
+                        <outlet property="_searchButton" destination="MWS-Vk-B4Y" id="bSz-0H-MXh"/>
+                        <outlet property="_searchTable" destination="CvA-5J-f9J" id="zL5-r9-KR1"/>
+                        <outlet property="_vSpaceConstraint" destination="9MY-jv-Hcb" id="Kax-cw-BEp"/>
+                        <segue destination="4Hw-6d-CYy" kind="push" identifier="results" id="pYt-Jz-GIA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="INM-zL-ZZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="747" y="332"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PrettyNavigationBar" superclassName="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrettyNavigationBar.h"/>
+        </class>
+        <class className="ResultsVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultsVC.h"/>
+        </class>
+        <class className="SearchVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchVC.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonTouchUpInside:"/>
+                <relationship kind="outlet" name="_searchButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_searchTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="_vSpaceConstraint" candidateClass="NSLayoutConstraint"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
