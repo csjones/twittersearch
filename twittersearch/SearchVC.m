@@ -109,14 +109,18 @@
     
     [[TwitterSearch sharedInstance] searchWithTerms:_searchTextfield.text
                                           onSuccess:^{
-                                              [ZAActivityBar showSuccessWithStatus:@"Got Results!" forAction:@"search"];
+                                              dispatch_async(dispatch_get_main_queue(), ^{
+                                                  [ZAActivityBar showSuccessWithStatus:@"Got Results!" forAction:@"search"];
+                                              });
                                               
                                               dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                                                   [self performSegueWithIdentifier:@"results" sender:nil];
                                               });
                                           }
                                           onFailure:^(NSError *error) {
-                                              [ZAActivityBar showErrorWithStatus:@"Failed To Get Results" forAction:@"search"];
+                                              dispatch_async(dispatch_get_main_queue(), ^{
+                                                  [ZAActivityBar showErrorWithStatus:@"Failed To Get Results" forAction:@"search"];
+                                              });
                                               
                                               dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                                                   [self prepAnimation];

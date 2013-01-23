@@ -48,9 +48,11 @@
     [imageView setImageWithURLRequest:[NSURLRequest requestWithURL:avatarURL]
                      placeholderImage:[UIImage imageNamed:@"placeholder-avatar"]
                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                  [[_avatarCache objectForKey:[[_searchTweets objectAtIndex:indexPath.row] objectForKey:@"profile_image_url"]] setImage:image];
-                                  
-                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"avatarLoaded" object:indexPath];
+                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                      [[_avatarCache objectForKey:[[_searchTweets objectAtIndex:indexPath.row] objectForKey:@"profile_image_url"]] setImage:image];
+                                      
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"avatarLoaded" object:indexPath];
+                                  });
                               }
                               failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                   NSLog(@"avatar.image setImageWithURLRequest %@",error);

@@ -35,9 +35,7 @@
 
 - (void)reloadData:(NSNotification *)notification
 {
-    NSIndexPath *indexPath = (NSIndexPath*)notification.object;
-    
-    if(indexPath.row < [self.tableView numberOfRowsInSection:0])
+    if([self.tableView.indexPathsForVisibleRows containsObject:(NSIndexPath*)notification.object])
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:notification.object] withRowAnimation:UITableViewRowAnimationFade];
 }
 
@@ -96,12 +94,16 @@
         [ZAActivityBar showWithStatus:@"Fetching More Results" forAction:@"fetch"];
         
         [[TwitterSearch sharedInstance] moreResultsOnSuccess:^{
-                                                        [ZAActivityBar showSuccessWithStatus:@"Got More Results!" forAction:@"fetch"];
-            
-                                                        [tableView reloadData];
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            [ZAActivityBar showSuccessWithStatus:@"Got More Results!" forAction:@"fetch"];
+                
+                                                            [tableView reloadData];
+                                                        });
                                                    }
                                                    onFailure:^(NSError *error) {
-                                                       [ZAActivityBar showErrorWithStatus:@"Fetch Failed" forAction:@"fetch"];
+                                                       dispatch_async(dispatch_get_main_queue(), ^{
+                                                           [ZAActivityBar showErrorWithStatus:@"Fetch Failed" forAction:@"fetch"];
+                                                       });
                                                    }];
     }
     
